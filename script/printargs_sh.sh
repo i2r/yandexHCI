@@ -17,7 +17,7 @@ Examples:
 EOF
 }
 
-while getopts “hm:” OPTION # TODO: add '-v' option for verbose mode
+while getopts "hm:" OPTION # TODO: add '-v' option for verbose mode
 do
     case $OPTION in
         h)
