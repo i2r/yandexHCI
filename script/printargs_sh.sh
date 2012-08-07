@@ -35,19 +35,19 @@ do
 done
 
 COUNT=0
-ARGSSTRING="Arguments: "
 
 for ARG in $@; do
     # TODO: add '-v' option for verbose mode
     # and print each argument
-	if [[ $PRINTARGS ]]; then
-		ARGSSTRING+=" $ARG"
-	fi
+	#if [[ $PRINTARGS ]]; then
+	#	ARGSSTRING+=" $ARG"
+	#fi
 	let COUNT+=1
 done
 
 if [[ $PRINTARGS ]]; then
-	echo $ARGSSTRING
+	#echo $ARGSSTRING	
+	echo "Arguments: $*"
 fi
 
 if [[ "$MESSAGE" != "" ]]; then
