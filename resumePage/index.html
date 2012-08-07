@@ -1,10 +1,518 @@
-<!DOCTYPE HTML>
-<html lang="ru-RU">
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-	<meta charset="UTF-8">
-	<title>Resume page for Yandex HCI classes</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Yandex HCI class resume page</title>
+	<meta name="description" content="Yandex HCI class resume page">
+	<meta name="author" content="Alexander Korolev">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/SyntaxHighlighter.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em>
+	<a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+	<a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+</p><![endif]-->
+<div class="l-wrapper">
+	<header class="b-header">
 
+	</header>
+	<div role="main" class="b-main">
+		<div class="b-section">
+			<h2 class="b-setion-title">Технические вопросы</h2>
+			<ol class="b-questions">
+				<li>
+					<h3 class="b-question">Перечислите известные вам инструменты и приёмы для отладки кода в разных браузерах.</h3>
+
+					<div class="b-answer">
+						<ul>
+							<li>Инструменты:
+								<ul>
+									<li>Firebug (Mozilla Firefox) + аддоны</li>
+									<li>Firebug Lite (Любой браузер)</li>
+									<li>Web Developer Toolbar (Firefox)</li>
+									<li>Dragonfly (Opera)</li>
+									<li>WebKit Developer Console (Google Crome, Safari)</li>
+									<li>Internet Explorer Developer Toolbar (IE6-7)</li>
+									<li>Internet Explorer Developer Tools (IE8-10)</li>
+									<li>Встроенный отладчик IntelliJ Web/PHPStorm</li>
+									<li>WebDeveloper V2 (IE6-7)</li>
+									<li>Drosera (Safari)</li>
+									<li>VisualEvent 1/2</li>
+									<li>CompanionJS (IE)</li>
+									<li>MS Visual Studio (IE)</li>
+									<li>Microsoft Script Editor</li>
+								</ul>
+							</li>
+							<li>Приемы:
+								<ul>
+									<li>Вывод отладочной информации в console.log (info,...)</li>
+									<li>Бросание исключений (try catch + throw)</li>
+									<li>
+										Обфусцированный код с трудом поддается отладке, поэтому сначала он прогоняется через деобфускатор
+										для улучшения его читаемости, а затем уже отлаживается какими либо инструментами.
+									</li>
+									<li>debugger; - для вставки точки остановки для Firebug</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<h3 class="b-question">Опишите своими словами, что происходит в браузерах при клике на ссылку yandex.ru (полнота ответа — на ваше усмотрение).</h3>
+
+					<div class="b-answer">
+						<p>Сначала происходит фокусировка на элементе, затем происходит действие нажатие. Далее происходит инициализация HTTP-запроса к требуемому ресурсу (yandex.ru) и страница остается ожидать ответа, в случае, если получен ответ о доступности ресурса, то происходит перезагрузка страницы с содержимым ресурса (если не было указано что либо в target атрибуте ссылки), иначе показывается сообщение о недоступности ресурса.</p>
+					</div>
+				</li>
+				<li>
+					<h3 class="b-question">Предположим, что мы представляем автосалон по продаже японских и немецких автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</h3>
+
+					<div class="b-answer">
+<pre name="code" class="js:collapse">
+/**
+ * Yandex HCI script
+ * @author Alexander V. Korolev
+ * @since 02.08.2012 11:21
+ */
+
+/**
+ * Создает экземпляр Машины
+ * @this {Car}
+ * @param {string} manufacturer Производитель
+ * @param {string} model Модель
+ * @param {number} year Год производство
+ */
+function Car(manufacturer, model, year) {
+	var date = new Date();
+
+	this.manufacturer = manufacturer;
+	this.model = model;
+	this.year = year || date.getFullYear();
+}
+
+Car.prototype.toString = function () {
+	return this.getInfo();
+};
+
+Car.prototype.getInfo = function (detailed) {
+	var format = "#MF #MD #YR";
+	if (detailed) {
+		format = "Производитель:#MF. Модель:#MD. Год: #YR";
+	}
+
+	return format.replace("#MF", this.manufacturer).replace("#MD", this.model).replace("#YR", this.year);
+};
+
+Car.prototype.getDetailedInfo = function () {
+	return this.getInfo(true);
+};
+
+var bmw = new Car("BMW", "X5", 2010),
+		audi = new Car("Audi", "Q5", 2012),
+		toyota = new Car("Toyota", "Camry");
+
+// @TODO: если конструктор вызывается без указания текущего года, то подставлять текущий
+// @TODO: реализовать методы вывода информации о машине:
+console.log('Car: ' + bmw); // Car: BMW X5 2010
+console.log(bmw.getInfo()); // BMW X5 2010
+console.log(bmw.getDetailedInfo()); // Производитель: BMW. Модель: X5. Год: 2010
+
+/**
+ * Создает экземпляр Автосалона
+ * @this {CarDealer}
+ * @param {string} name Название автосалона
+ */
+function CarDealer(name) {
+	this.name = name;
+
+	/** @type {Array} */
+	this.cars = [];
+}
+/**
+ * Принимает один или множество экземпляров класса Car
+ * @param {Car} carObjects
+ */
+CarDealer.prototype.add = function (carObjects) {
+	for (var i = 0; i < arguments.length; i++) {
+		if (arguments[i] instanceof Car) {
+			var car = arguments[i];
+			car.price = {value: 0, currency: ""};
+			this.cars.push(car);
+		}
+	}
+	/*var cars = Array.prototype.slice.call(arguments, 0);
+	 this.cars = this.cars.concat(cars);*/
+	return this;
+};
+
+/**
+ * Установка цены машины, создается объект
+ * @param {String} carName строковое представление машины "Марка Модель Год"
+ * @param {String} priceString строковое представление цены "ВалютаКоличество"
+ */
+CarDealer.prototype.setPrice = function (carName, priceString) {
+	var priceRegEx = /(€|¥).*?(\d+)/;
+
+	for (var i = 0; i < this.cars.length; i++) {
+		if (this.cars[i].getInfo() == carName && priceRegEx.test(priceString)) {
+			var price = priceRegEx.exec(priceString);
+			this.cars[i].price = {
+				currency: price[1],
+				value   : price[2],
+				toString: function () {
+					return this.currency + this.value;
+				}
+			};
+		}
+	}
+
+	return this;
+};
+
+// yandex -> carDealer
+
+var carDealer = new CarDealer('Яндекс.Авто');
+
+// @TODO: реализовать метод добавления машин в автосалон. Предусмотреть возможность добавления одной машины, нескольких машин.
+carDealer
+		.add(toyota)
+		.add(bmw, audi);
+
+// @TODO: реализовать метод установки цены на машину
+/**
+ * Установить цену на машину
+ * @param {string} car идентификатор машины
+ * @param {string} price стоимость
+ */
+	// идентификатор машины составляется следующим образом "производитель модель год"
+	// стоимость машины может быть задана в двух валютах: йена и евро.
+carDealer
+		.setPrice('BMW X5 2010', '€2000')
+		.setPrice('Audi Q5 2012', '€3000')
+		.setPrice('Toyota Camry 2012', '¥3000');
+
+// @TODO: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране производителю, используя метод getCountry:
+
+Car.prototype.getCountry = function () {
+	switch (this.manufacturer.toLowerCase()) {
+		case 'bmw':
+		case 'audi':
+			return 'Germany';
+
+		case 'toyota':
+			return 'Japan';
+	}
+};
+
+/**
+ * Удиный метод для получения списка машин с необязательным параметром
+ * @param country
+ * @return {Array}
+ */
+CarDealer.prototype.getList = function (country) {
+	var carInfoList = [];
+	var countryRegEx;
+
+	if (country) {
+		countryRegEx = new RegExp(country, "i");
+	} else {
+		countryRegEx = /.*/;
+	}
+
+	for (var i = 0; i < this.cars.length; i++) {
+		if (countryRegEx.test(this.cars[i].getCountry())) {
+			carInfoList.push(this.cars[i].getInfo());
+		}
+	}
+
+	return carInfoList;
+};
+
+/**
+ * Вывод строки со списком машин
+ * @return {String}
+ */
+CarDealer.prototype.list = function () {
+	var list = this.getList().join(", ");
+	console.log(list);
+	return list;
+};
+
+carDealer.list(); //BMW X5 2010, Audi Q5 2012, Toyota Camry 2012 ну почти =)
+
+/**
+ * Вывод строки машин отобранных по стране
+ * @param country
+ * @return {String}
+ */
+CarDealer.prototype.listByCountry = function (country) {
+	var list = this.getList(country).join(", ");
+	console.log(list);
+	return list;
+};
+
+carDealer.listByCountry('Germany'); //BMW X5 2010, Audi Q5 2012
+
+// @TODO: бонус! выводить список машин с ценой в рублях.
+
+/**
+ * Вывод строки с ценами
+ * @return {Array}
+ */
+CarDealer.prototype.listPrices = function () {
+	var carInfoListWPrices = [];
+
+	for (var i = 0; i < this.cars.length; i++) {
+		var car = this.cars[i];
+		var rublePrice = 0;
+
+		// я думаю тут не нужно было писать AJAX-получение курса валют?)
+
+		if (car.price.currency == "€") {
+			rublePrice = car.price.value * 39.824;
+		} else {
+			rublePrice = car.price.value * 0.414;
+		}
+
+		carInfoListWPrices.push(car.getInfo() + " " + car.price + " (" + rublePrice + "rur)" );
+	}
+
+	console.log(carInfoListWPrices.join(", "));
+
+	return carInfoListWPrices;
+};
+
+carDealer.listPrices();
+</pre>
+					</div>
+				</li>
+				<li>
+					<h3 class="b-question">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в содержимом — «школа разработки интерфейсов».</h3>
+
+					<div class="b-answer"></div>
+				</li>
+				<li>
+					<h3 class="b-question">
+						Дана программа, реализованная одновременно на Bash, Python и Perl. Программа принимает произвольное количество аргументов и печатает их количество. Нужно добавить
+						опцию -v для verbose-режима, в котором дополнительно выводится значение каждого из аргументов.
+					</h3>
+
+					<div class="b-answer">
+						<ul>
+							<li>
+								<h4>Bash</h4>
+<pre name="code" class="python:collapse">
+#!/usr/bin/env bash
+
+usage() {
+cat << EOF
+Usage: printargs.sh [OPTIONS] [ARGUMENTS]
+  Print the number of arguments.
+
+OPTIONS:
+  -h      print help message
+  -m MSG  custom message
+  -v 	  print arguments
+
+Examples:
+  printargs.sh a b c
+  printargs.sh -m 'Arguments count: ' a b c
+  printargs.sh -h
+  printargs.sh -v a b c
+EOF
+}
+
+while getopts "hmv:" OPTION # TODO: add '-v' option for verbose mode
+do
+    case $OPTION in
+        h)
+            usage
+            exit 1
+            shift;;
+		v)
+			PRINTARGS=1
+			shift;;
+        m)
+            MESSAGE=$OPTARG
+            shift;shift;;
+    esac
+done
+
+COUNT=0
+
+for ARG in $@; do
+    # TODO: add '-v' option for verbose mode
+    # and print each argument
+	#if [[ $PRINTARGS ]]; then
+	#	ARGSSTRING+=" $ARG"
+	#fi
+	let COUNT+=1
+done
+
+if [[ $PRINTARGS ]]; then
+	#echo $ARGSSTRING
+	echo "Arguments: $*"
+fi
+
+if [[ "$MESSAGE" != "" ]]; then
+    echo $MESSAGE
+fi
+
+echo $COUNT
+</pre>
+							</li>
+							<li>
+								<h4>Python</h4>
+<pre name="code" class="python:collapse">
+#!/usr/bin/env python
+
+import argparse
+
+parser = argparse.ArgumentParser(description='Print the number of arguments.')
+parser.add_argument('arguments', metavar='ARG', type=str, nargs='*', help='some arguments')
+parser.add_argument('-m', dest='message', default='', help='custom message')
+parser.add_argument('-v', action='store_true', default=False, help='Print list of argumentss', dest='verbose')
+# TODO: add '-v' option for verbose mode
+
+args = parser.parse_args()
+
+count = 0
+
+for a in args.arguments:
+	# TODO: add '-v' option for verbose mode
+	# and print each argument
+	if (args.verbose == True):
+		print("Arg:",a)
+	count += 1
+
+if args.message != '':
+	print("Msg:",args.message)
+
+print("Args count:",count)
+</pre>
+							</li>
+							<li>
+								<h4>Perl</h4>
+<pre name="code" class="python:collapse">
+#!/usr/bin/env perl
+
+use strict;
+use Getopt::Long;
+use Pod::Usage;
+
+my $help;
+my $message = '';
+my $verbose;
+
+@ARGV and GetOptions(
+    "h" => \$help,
+    "m:s" => \$message,
+    # TODO: add '-v' option for verbose mode
+	"v"=>\$verbose
+) or pod2usage(1);
+pod2usage(-verbose => 2, -exitval => 2) if $help;
+
+my $count = 0;
+my $argString = "Arguments:";
+
+foreach my $arg (@ARGV) {
+    # TODO: add '-v' option for verbose mode
+    # and print each argument
+	if ($verbose) {
+		$argString .= " " . $arg;
+	}
+    $count++;
+}
+
+if ($verbose) {
+	print ($argString . "\n");
+}
+
+if($message ne "") {
+    print($message . "\n");
+}
+
+print("Count: " . $count . "\n");
+
+__END__
+
+=head1 NAME
+
+    printargs.pl - Print the number of arguments.
+
+=head1 SYNOPSIS
+
+    printargs.pl [options] [arguments]
+
+=head1 OPTIONS
+
+    -h      Show help message.
+
+    -m MSG  Specify a custom message.
+
+	-m      Prints arguments list.
+
+
+=head1 EXAMPLE
+
+    printargs.sh a b c
+
+    printargs.sh -m 'Arguments count: ' a b c
+
+    printargs.sh -h
+
+	printargs.sh -v a b c
+</pre>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<h3 class="b-question">
+						Расскажите, в каком объёме и при каких обстоятельствах вы изучали следующие темы:
+						языки программирования (императивные/декларативные, разные системы типов), структуры
+						(классы, структуры данных, примитивные типы), парадигмы (события, ООП, параллельность/асинхронность, кеширование),
+						алгоритмы (парсинг, сортировка, поиск), паттерны.
+					</h3>
+
+					<div class="b-answer">
+						<p>Начал изучение языков в школе, затем продолжил обучение в Тверском индустриальном колледже по специальности программное обеспечение (3 года) и в ВАВКО им. Жукова по специальности ВМКСС (1 год). В процессе обучения в академии начал заниматься web-разработкой, где и познакомился с декларативными языками (3 года).</p>
+						<p>В техникуме а так же в процессе работы познакомился с различными парадигмами программирования, которыми пользуюсь при разработки web-приложений.</p>
+						<p>При разработке часто вставали задачи, требующие изучения различных алгоритмов, но систематического их изучения (алгоритмов) не было, только в рамках конкретной задачи.</p>
+						<p>Паттерны проектирования периодически используются при разработке на Javascript, который является на данный момент основным моим языком разработки (в связке с HTML/XSLT/Razor).</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+	</div>
+	<footer class="b-footer">
+		<p>Made by Alexander Korolev. 2012</p>
+	</footer>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="js/libs/sintaxhighliter/shCore.js"></script>
+<script src="js/libs/sintaxhighliter/shBrushJScript.js"></script>
+<script src="js/libs/sintaxhighliter/shBrushPython.js"></script>
+<script language="javascript">
+	dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
