@@ -275,7 +275,7 @@ body {
    Author: Alexander Korolev
    ========================================================================== */
 body {
-    background: #fff url("../img/escheresque/escheresque.png") repeat 0 0 fixed;
+    background: #fff url("../img/escheresque.png") repeat 0 0 fixed;
 }
 
 /* ===== Global Styles =====================================================> */
