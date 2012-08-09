@@ -27,60 +27,83 @@
 </p><![endif]-->
 <div class="l-wrapper">
 	<header class="b-header">
-
 	</header>
 	<div role="main" class="b-main">
-		<div class="b-section">
-			<h2 class="b-setion-title">Технические вопросы</h2>
-			<ol class="b-questions">
-				<li>
-					<h3 class="b-question">Перечислите известные вам инструменты и приёмы для отладки кода в разных браузерах.</h3>
+    <div class="b-sections j-sections">
+    <div class="b-section b-section__gen j-section">
+        <h2 class="b-section-title j-section-title">Общие вопросы</h2>
 
-					<div class="b-answer">
-						<ul>
-							<li>Инструменты:
-								<ul>
-									<li>Firebug (Mozilla Firefox) + аддоны</li>
-									<li>Firebug Lite (Любой браузер)</li>
-									<li>Web Developer Toolbar (Firefox)</li>
-									<li>Dragonfly (Opera)</li>
-									<li>WebKit Developer Console (Google Crome, Safari)</li>
-									<li>Internet Explorer Developer Toolbar (IE6-7)</li>
-									<li>Internet Explorer Developer Tools (IE8-10)</li>
-									<li>Встроенный отладчик IntelliJ Web/PHPStorm</li>
-									<li>WebDeveloper V2 (IE6-7)</li>
-									<li>Drosera (Safari)</li>
-									<li>VisualEvent 1/2</li>
-									<li>CompanionJS (IE)</li>
-									<li>MS Visual Studio (IE)</li>
-									<li>Microsoft Script Editor</li>
-								</ul>
-							</li>
-							<li>Приемы:
-								<ul>
-									<li>Вывод отладочной информации в console.log (info,...)</li>
-									<li>Бросание исключений (try catch + throw)</li>
-									<li>
-										Обфусцированный код с трудом поддается отладке, поэтому сначала он прогоняется через деобфускатор
-										для улучшения его читаемости, а затем уже отлаживается какими либо инструментами.
-									</li>
-									<li>debugger; - для вставки точки остановки для Firebug</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3 class="b-question">Опишите своими словами, что происходит в браузерах при клике на ссылку yandex.ru (полнота ответа — на ваше усмотрение).</h3>
+        <div class="b-section-content j-section-content">
+            <ol class="b-question-list">
+                <li class="b-question-list-item">
+                    <h3 class="b-question-list-item-question">Фамилия, имя, отчество:</h3>
 
-					<div class="b-answer">
-						<p>Сначала происходит фокусировка на элементе, затем происходит действие нажатие. Далее происходит инициализация HTTP-запроса к требуемому ресурсу (yandex.ru) и страница остается ожидать ответа, в случае, если получен ответ о доступности ресурса, то происходит перезагрузка страницы с содержимым ресурса (если не было указано что либо в target атрибуте ссылки), иначе показывается сообщение о недоступности ресурса.</p>
-					</div>
-				</li>
-				<li>
-					<h3 class="b-question">Предположим, что мы представляем автосалон по продаже японских и немецких автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</h3>
+                    <div class="b-question-list-item-answer">
+                        Королев Александр Владимирович
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+		<div class="b-section b-section__tech j-section">
+			<h2 class="b-section-title j-section-title">Технические вопросы</h2>
+            <div class="b-section-content j-section-content">
+                <ol class="b-question-list">
+            <li class="b-question-list-item j-box b-box">
+                <h3 class="b-question-list-item-question j-box-lock b-box-lock">Перечислите известные вам инструменты и приёмы для отладки кода в разных
+                    браузерах.</h3>
+                <div class="b-question-list-item-answer j-box-contents b-box-contents">
+                    <ul>
+                        <li>Инструменты:
+                            <ul>
+                                <li>Firebug (Mozilla Firefox) + аддоны</li>
+                                <li>Firebug Lite (Любой браузер)</li>
+                                <li>Web Developer Toolbar (Firefox)</li>
+                                <li>Dragonfly (Opera)</li>
+                                <li>WebKit Developer Console (Google Crome, Safari)</li>
+                                <li>Internet Explorer Developer Toolbar (IE6-7)</li>
+                                <li>Internet Explorer Developer Tools (IE8-10)</li>
+                                <li>Встроенный отладчик IntelliJ Web/PHPStorm</li>
+                                <li>WebDeveloper V2 (IE6-7)</li>
+                                <li>Drosera (Safari)</li>
+                                <li>VisualEvent 1/2</li>
+                                <li>CompanionJS (IE)</li>
+                                <li>MS Visual Studio (IE)</li>
+                                <li>Microsoft Script Editor</li>
+                            </ul>
+                        </li>
+                        <li>Приемы:
+                            <ul>
+                                <li>Вывод отладочной информации в console.log (info,...)</li>
+                                <li>Бросание исключений (try catch + throw)</li>
+                                <li>
+                                    Обфусцированный код с трудом поддается отладке, поэтому сначала он прогоняется через
+                                    деобфускатор
+                                    для улучшения его читаемости, а затем уже отлаживается какими либо инструментами.
+                                </li>
+                                <li>debugger; - для вставки точки остановки для Firebug</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="b-question-list-item j-box b-box">
+                <h3 class="b-question-list-item-question j-box-lock b-box-lock">Опишите своими словами, что происходит в браузерах при клике на ссылку yandex.ru
+                    (полнота ответа — на ваше усмотрение).</h3>
 
-					<div class="b-answer">
+                <div class="b-question-list-item-answer j-box-contents b-box-contents">
+                    <p>Сначала происходит фокусировка на элементе, затем происходит действие нажатие. Далее происходит
+                        инициализация HTTP-запроса к требуемому ресурсу (yandex.ru) и страница остается ожидать ответа,
+                        в случае, если получен ответ о доступности ресурса, то происходит перезагрузка страницы с
+                        содержимым ресурса (если не было указано что либо в target атрибуте ссылки), иначе показывается
+                        сообщение о недоступности ресурса.</p>
+                </div>
+            </li>
+            <li class="b-question-list-item j-box b-box">
+            <h3 class="b-question-list-item-question j-box-lock b-box-lock">Предположим, что мы представляем автосалон по продаже японских и немецких
+                автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</h3>
+
+            <div class="b-question-list-item-answer j-box-contents b-box-contents">sd
 <pre name="code" class="js:collapse">
 /**
  * Yandex HCI script
@@ -297,23 +320,25 @@ CarDealer.prototype.listPrices = function () {
 
 carDealer.listPrices();
 </pre>
-					</div>
-				</li>
-				<li>
-					<h3 class="b-question">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в содержимом — «школа разработки интерфейсов».</h3>
+            </div>
+            </li>
+            <li class="b-question-list-item j-box b-box">
+                <h3 class="b-question-list-item-question j-box-lock b-box-lock">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в
+                    содержимом — «школа разработки интерфейсов».</h3>
 
-					<div class="b-answer"></div>
-				</li>
-				<li>
-					<h3 class="b-question">
-						Дана программа, реализованная одновременно на Bash, Python и Perl. Программа принимает произвольное количество аргументов и печатает их количество. Нужно добавить
-						опцию -v для verbose-режима, в котором дополнительно выводится значение каждого из аргументов.
-					</h3>
+                <div class="b-question-list-item-answer j-box-contents b-box-contents"></div>
+            </li>
+            <li class="b-question-list-item j-box b-box">
+                <h3 class="b-question-list-item-question j-box-lock b-box-lock">
+                    Дана программа, реализованная одновременно на Bash, Python и Perl. Программа принимает произвольное
+                    количество аргументов и печатает их количество. Нужно добавить
+                    опцию -v для verbose-режима, в котором дополнительно выводится значение каждого из аргументов.
+                </h3>
 
-					<div class="b-answer">
-						<ul>
-							<li>
-								<h4>Bash</h4>
+                <div class="b-question-list-item-answer j-box-contents b-box-contents">
+                    <ul>
+                        <li>
+                            <h4>Bash</h4>
 <pre name="code" class="python:collapse">
 #!/usr/bin/env bash
 
@@ -373,9 +398,9 @@ fi
 
 echo $COUNT
 </pre>
-							</li>
-							<li>
-								<h4>Python</h4>
+                        </li>
+                        <li>
+                            <h4>Python</h4>
 <pre name="code" class="python:collapse">
 #!/usr/bin/env python
 
@@ -403,9 +428,9 @@ if args.message != '':
 
 print("Args count:",count)
 </pre>
-							</li>
-							<li>
-								<h4>Perl</h4>
+                        </li>
+                        <li>
+                            <h4>Perl</h4>
 <pre name="code" class="python:collapse">
 #!/usr/bin/env perl
 
@@ -476,30 +501,42 @@ __END__
 
 	printargs.sh -v a b c
 </pre>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<h3 class="b-question">
-						Расскажите, в каком объёме и при каких обстоятельствах вы изучали следующие темы:
-						языки программирования (императивные/декларативные, разные системы типов), структуры
-						(классы, структуры данных, примитивные типы), парадигмы (события, ООП, параллельность/асинхронность, кеширование),
-						алгоритмы (парсинг, сортировка, поиск), паттерны.
-					</h3>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="b-question-list-item j-box b-box">
+                <h3 class="b-question-list-item-question j-box-lock b-box-lock">
+                    Расскажите, в каком объёме и при каких обстоятельствах вы изучали следующие темы:
+                    языки программирования (императивные/декларативные, разные системы типов), структуры
+                    (классы, структуры данных, примитивные типы), парадигмы (события, ООП, параллельность/асинхронность,
+                    кеширование),
+                    алгоритмы (парсинг, сортировка, поиск), паттерны.
+                </h3>
 
-					<div class="b-answer">
-						<p>Начал изучение языков в школе, затем продолжил обучение в Тверском индустриальном колледже по специальности программное обеспечение (3 года) и в ВАВКО им. Жукова по специальности ВМКСС (1 год). В процессе обучения в академии начал заниматься web-разработкой, где и познакомился с декларативными языками (3 года).</p>
-						<p>В техникуме а так же в процессе работы познакомился с различными парадигмами программирования, которыми пользуюсь при разработки web-приложений.</p>
-						<p>При разработке часто вставали задачи, требующие изучения различных алгоритмов, но систематического их изучения (алгоритмов) не было, только в рамках конкретной задачи.</p>
-						<p>Паттерны проектирования периодически используются при разработке на Javascript, который является на данный момент основным моим языком разработки (в связке с HTML/XSLT/Razor).</p>
-					</div>
-				</li>
-			</ol>
+                <div class="b-question-list-item-answer j-box-contents b-box-contents">
+                    <p>Начал изучение языков в школе, затем продолжил обучение в Тверском индустриальном колледже по
+                        специальности программное обеспечение (3 года) и в ВАВКО им. Жукова по специальности ВМКСС (1
+                        год). В процессе обучения в академии начал заниматься web-разработкой, где и познакомился с
+                        декларативными языками (3 года).</p>
+
+                    <p>В техникуме а так же в процессе работы познакомился с различными парадигмами программирования,
+                        которыми пользуюсь при разработки web-приложений.</p>
+
+                    <p>При разработке часто вставали задачи, требующие изучения различных алгоритмов, но
+                        систематического их изучения (алгоритмов) не было, только в рамках конкретной задачи.</p>
+
+                    <p>Паттерны проектирования периодически используются при разработке на Javascript, который является
+                        на данный момент основным моим языком разработки (в связке с HTML/XSLT/Razor).</p>
+                </div>
+            </li>
+            </ol>
+            </div>
 		</div>
+    </div>
 	</div>
 	<footer class="b-footer">
-		<p>Made by Alexander Korolev. 2012</p>
+		<p class="b-footer-text">Made by Alexander Korolev. 2012</p>
 	</footer>
 </div>
 
