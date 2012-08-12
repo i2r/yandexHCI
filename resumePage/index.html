@@ -29,9 +29,7 @@
 	<header class="b-header">
 	</header>
 	<div role="main" class="b-main">
-	<div class="b-contents j-contents">
-
-	</div>
+	<div class="b-contents j-contents"></div>
     <div class="b-sections j-sections">
     <div class="b-section b-section__gen j-section">
         <h2 class="b-section-title j-section-title">Общие вопросы</h2>
@@ -252,8 +250,8 @@
 			<h2 class="b-section-title j-section-title">Технические вопросы</h2>
          <div class="b-section-content j-section-content">
                 <ol class="b-question-list">
-            <li class="b-question-list-item j-box b-box">
-                <h3 class="b-question-list-item-question j-chapter-title" j-box-lock b-box-lock">Перечислите известные вам инструменты и приёмы для отладки кода в разных
+            <li class="b-question-list-item j-chapter j-box b-box">
+                <h3 class="b-question-list-item-question j-chapter-title j-box-lock b-box-lock">Перечислите известные вам инструменты и приёмы для отладки кода в разных
                     браузерах.</h3>
                 <div class="b-question-list-item-answer j-box-contents b-box-contents">
                     <ul>
@@ -290,8 +288,8 @@
                     </ul>
                 </div>
             </li>
-            <li class="b-question-list-item j-box b-box">
-                <h3 class="b-question-list-item-question j-chapter-title" j-box-lock b-box-lock">Опишите своими словами, что происходит в браузерах при клике на ссылку yandex.ru
+            <li class="b-question-list-item j-chapter j-box b-box">
+                <h3 class="b-question-list-item-question j-chapter-title j-box-lock b-box-lock">Опишите своими словами, что происходит в браузерах при клике на ссылку yandex.ru
                     (полнота ответа — на ваше усмотрение).</h3>
 
                 <div class="b-question-list-item-answer j-box-contents b-box-contents">
@@ -302,11 +300,11 @@
                         сообщение о недоступности ресурса.</p>
                 </div>
             </li>
-            <li class="b-question-list-item j-box b-box">
-            <h3 class="b-question-list-item-question j-chapter-title" j-box-lock b-box-lock">Предположим, что мы представляем автосалон по продаже японских и немецких
+            <li class="b-question-list-item j-chapter j-box b-box">
+            <h3 class="b-question-list-item-question j-chapter-title j-box-lock b-box-lock">Предположим, что мы представляем автосалон по продаже японских и немецких
                 автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</h3>
 
-            <div class="b-question-list-item-answer j-box-contents b-box-contents">sd
+            <div class="b-question-list-item-answer j-box-contents b-box-contents">
 <pre name="code" class="js:collapse">
 /**
  * Yandex HCI script
@@ -525,14 +523,16 @@ carDealer.listPrices();
 </pre>
             </div>
             </li>
-            <li class="b-question-list-item j-box b-box">
-                <h3 class="b-question-list-item-question j-chapter-title" j-box-lock b-box-lock">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в
+            <li class="b-question-list-item j-chapter j-box b-box">
+                <h3 class="b-question-list-item-question j-chapter-title j-box-lock b-box-lock">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в
                     содержимом — «школа разработки интерфейсов».</h3>
 
-                <div class="b-question-list-item-answer j-box-contents b-box-contents"></div>
+                <div class="b-question-list-item-answer j-box-contents b-box-contents">
+                    <!--TODO-->
+                </div>
             </li>
-            <li class="b-question-list-item j-box b-box">
-                <h3 class="b-question-list-item-question j-chapter-title" j-box-lock b-box-lock">
+            <li class="b-question-list-item j-chapter j-box b-box">
+                <h3 class="b-question-list-item-question j-chapter-title j-box-lock b-box-lock">
                     Дана программа, реализованная одновременно на Bash, Python и Perl. Программа принимает произвольное
                     количество аргументов и печатает их количество. Нужно добавить
                     опцию -v для verbose-режима, в котором дополнительно выводится значение каждого из аргументов.
@@ -708,8 +708,8 @@ __END__
                     </ul>
                 </div>
             </li>
-            <li class="b-question-list-item j-box b-box">
-                <h3 class="b-question-list-item-question j-chapter-title" j-box-lock b-box-lock">
+            <li class="b-question-list-item j-chapter j-box b-box">
+                <h3 class="b-question-list-item-question j-chapter-title j-box-lock b-box-lock">
                     Расскажите, в каком объёме и при каких обстоятельствах вы изучали следующие темы:
                     языки программирования (императивные/декларативные, разные системы типов), структуры
                     (классы, структуры данных, примитивные типы), парадигмы (события, ООП, параллельность/асинхронность,
@@ -754,5 +754,11 @@ __END__
 
 <script src="js/plugins.js"></script>
 <script src="js/script.js"></script>
+
+<div class="b-top_button j-top_button">
+    <div class="b-top_button-text">
+        &uarr;&nbsp;наверх
+    </div>
+</div>
 </body>
 </html>
