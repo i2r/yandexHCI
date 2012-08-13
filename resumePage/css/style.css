@@ -236,9 +236,11 @@ td {
     padding: 0.2em 0;
 }
 
-/* ===== Primary Styles ========================================================
-Typography
-========================================================================== */
+/* ===== Primary Styles =====================================================
+        Author: Alexander Korolev
+============================================================================= */
+
+/* ===== Typography ========================================================> */
 html {
     font-size: 100%;
 }
@@ -253,18 +255,12 @@ h3, p, div {
     text-shadow: 1px 1px 0 #efefef;
 }
 
-/* ===== Primary Styles ========================================================
-   Author: Alexander Korolev
-   ========================================================================== */
-body {
-    background: #fff url("../img/escheresque.png") repeat 0 0 fixed;
-}
-
+/* <==== Typography ========================================================= */
 /* ===== Global Styles =====================================================> */
 
 .g-hidden {
-    display: none;
-}
+display: none;
+    }
 
 a[href*="http"][target="_blank"] {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=") no-repeat scroll right center transparent;
@@ -293,6 +289,11 @@ a:hover, a:active {
 }
 
 /* <==== Global Styles ====================================================== */
+
+body {
+    background: #fff url("../img/escheresque.png") repeat 0 0 fixed;
+}
+
 
 .b-top_button {
     position: fixed;
@@ -373,7 +374,6 @@ a:hover, a:active {
     border: solid #666;
     border-width: 0 0 2px;
     color: #275066;
-    cursor: pointer;
 }
 
 .b-sections .b-section .b-section-content {
