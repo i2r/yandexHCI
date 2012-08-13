@@ -255,6 +255,14 @@ h3, p, div {
 	text-shadow: 1px 1px 0 #efefef;
 }
 
+h3 {
+	font-size: 1.1em;
+}
+
+.lt-ie8 h3 {
+	margin: 10px 0;
+}
+
 /* <==== Typography ========================================================= */
 /* ===== Global Styles =====================================================> */
 
@@ -380,7 +388,6 @@ body {
 }
 
 .b-contents.g-floating .b-contents-section ol {
-	/*display: none;*/
 	padding-left: 5px;
 }
 
@@ -433,7 +440,7 @@ body {
 	display: none;
 }
 
-.b-sections .b-section:last-child .b-section-content {
+.b-sections .b-section.last-child .b-section-content {
 	border-width: 0;
 }
 

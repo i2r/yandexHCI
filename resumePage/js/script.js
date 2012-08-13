@@ -61,13 +61,15 @@ $(function () {
 
 		var scrollHeight = contentsContainer.height() + 18;
 		var floatingContents = contentsContainer.clone();
-		floatingContents.addClass("g-floating").appendTo(".l-wrapper");
+		floatingContents.addClass("g-floating");
 		floatingContents.addClass("j-accordion")
 			.find(".b-contents-section")//.addClass("j-accordion-section")
 			.find("ol").addClass("j-accordion-contents")
 			.before("&#160;<span class='j-accordion-key b-accordion-key'></span>");
 
-		$(".j-accordion-key").on("click", function () {
+		$(".l-wrapper").prepend(floatingContents);
+
+		$(".j-accordion-key").on("click",function () {
 			if (!$(this).hasClass("g-accordion-current")) {
 				$(".j-accordion-contents").slideUp("slow");
 				$(".g-accordion-current").removeClass("g-accordion-current");
@@ -76,11 +78,10 @@ $(function () {
 
 			}
 			return false;
-		}).next().hide()
+		}).next().hide();
 	}
 
 
-	var visible = [0, 0];
 	var topButton = $(".j-top_button");
 
 	/**
@@ -89,27 +90,30 @@ $(function () {
 	 */
 	function onWindowScroll() {
 
-		if (window.pageYOffset > 300) {
-			if (!visible[0]) {
+		var scrollProperty;
+		if (window.pageYOffset == null) {
+			scrollProperty = document.documentElement.scrollTop;
+		} else {
+			scrollProperty = window.pageYOffset;
+		}
+
+		if (scrollProperty > 300) {
+			if (!topButton.is(":visible")) {
 				topButton.fadeIn(200);
-				visible[0] = 0;
 			}
 		} else {
 			topButton.fadeOut(200);
-			visible[0] = 0;
 		}
 
-		if (contentsData.sections.length > 0 && window.pageYOffset > scrollHeight) {
-			if (!visible[1]) {
+		if (contentsData.sections.length > 0 && scrollProperty > scrollHeight) {
+			if (!floatingContents.is(":visible")) {
 				floatingContents.fadeIn(500);
-				visible[1] = 1;
 			}
 			floatingContents.css({
-				top:window.pageYOffset + 15
+				top: scrollProperty + 15
 			})
 		} else {
 			floatingContents.hide();
-			visible[1] = 0
 		}
 	}
 
@@ -122,6 +126,12 @@ $(function () {
 	});
 
 	onWindowScroll();
+
+	/**
+	 * Совместимость
+	 */
+
+	$(".b-section:last-child").addClass("last-child");
 });
 
 /**
