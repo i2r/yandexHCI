@@ -1,0 +1,1 @@
+This is the repo for Yandex "interface Development School" appliance. It contains all (i hope) of the files needed.
